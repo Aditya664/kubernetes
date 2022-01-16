@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome file</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><h3 id="what-is-minikube">what is minikube?</h3>
+<p>Like  <code>kind</code>,  <a href="https://minikube.sigs.k8s.io/"><code>minikube</code></a>  is a tool that lets you run Kubernetes locally.  <code>minikube</code>  runs a single-node Kubernetes cluster on your personal computer (including Windows, macOS and Linux PCs) so that you can try out Kubernetes, or for daily development work.<br>
+<img src="https://images.ctfassets.net/w1bd7cq683kz/2qZ0Ll6qoEHq7Anx2lVnK1/3fdfb78454b07be02c6277059e721137/minikube.png" alt="enter image description here"></p>
+<h3 id="how-to-install-minikube">How to install minikube?</h3>
+<h2 id="how-to-install-minikube-1">How to Install Minikube[]</h2>
+<p>The following tutorial shows how to install Minikube on a Linux machine. It is adapted from the  <a href="https://kubernetes.io/docs/tasks/tools/install-minikube/" title="minikube start">k8s documentation here</a>, where you can find more detailed instructions for Linux, macOS, and Windows.</p>
+<h3 id="verify-that-virtualization-is-supported">1. Verify that virtualization is supported<a href="https://sensu.io/blog/minikube-tutorial#1.-verify-that-virtualization-is-supported"></a></h3>
+<p>To check this, use the following command:</p>
+<pre><code>grep -E --color 'vmx|svm' /proc/cpuinfo 
+
+</code></pre>
+<p>You should see a non-empty output.</p>
+<h3 id="install-kubectl">2. Install Kubectl<a href="https://sensu.io/blog/minikube-tutorial#2.-install-kubectl"></a></h3>
+<p>Kubectl is Kubernetes’ command line tool which you need to interact with your cluster. To download the latest release, you can use the following command:</p>
+<pre><code>curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -s 
+https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl"
+
+</code></pre>
+<p>Make your binary executable:</p>
+<pre><code>chmod +x ./kubectl
+
+</code></pre>
+<p>Move it to your executable path. For example if  <code>/usr/local/bin/</code>  is in your executable path:</p>
+<pre><code>sudo mv ./kubectl /usr/local/bin/kubectl
+
+</code></pre>
+<h3 id="install-a-hypervisor">3. Install a hypervisor<a href="https://sensu.io/blog/minikube-tutorial#3.-install-a-hypervisor"></a></h3>
+<p>If you need to install a hypervisor, you should consider either  <a href="https://www.linux-kvm.org/" title="KVM">KVM</a>  or  <a href="https://www.virtualbox.org/wiki/Downloads" title="VirtualBox">VirtualBox</a>. Alternatively, you can choose to run Minikube on the host with  <code>--driver=none</code>  and Docker.</p>
+<h3 id="install-minikube">4. Install Minikube<a href="https://sensu.io/blog/minikube-tutorial#4.-install-minikube"></a></h3>
+<p>There are three ways you can install Minikube, via a package, direct download, or with Homebrew. If you want to use a package, you can use your built-in package tool to find the right option.</p>
+<p>If you want to install via direct download, use the following command:</p>
+<pre><code>curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 \
+&amp;&amp; chmod +x minikube
+
+</code></pre>
+<p>Or if you want to use Homebrew, this command:</p>
+<pre><code>brew install minikube
+
+</code></pre>
+<h3 id="confirm-installation">5. Confirm installation<a href="https://sensu.io/blog/minikube-tutorial#5.-confirm-installation"></a></h3>
+<p>After your installation of the hypervisor and Minikube are complete you can start your local cluster. In this command, you need to replace  <code>&lt;driver_name&gt;</code>  with the hypervisor you’re using.</p>
+<pre><code>minikube start --driver=&lt;driver_name&gt;
+
+</code></pre>
+<p>After the cluster is started, you can verify its status.</p>
+<pre><code>minikube status
+</code></pre>
+</div>
+</body>
+
+</html>
